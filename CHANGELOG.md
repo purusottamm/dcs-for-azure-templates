@@ -1,5 +1,11 @@
 # CHANGELOG
 
+# 0.0.31
+* Add GitHub Actions workflow for automated pre-commit validation on pull requests
+* Implement CI/CD pipeline to run pre-commit checks (`pre-commit run --all-files`) automatically
+* Replace Jenkins-based validation with GitHub Actions for improved security and consistency
+* Add manual workflow trigger capability for testing pre-commit checks on main branch
+
 # 0.0.30
 * Re-introduce the parameterization for source and sink database linked services in the Snowflake masking pipeline
 `dcsazure_Snowflake_to_Snowflake_mask_pl`
