@@ -1,5 +1,6 @@
 # CHANGELOG
-
+# 0.0.31
+* Testing purpose
 # 0.0.30
 * Re-introduce the parameterization for source and sink database linked services in the Snowflake masking pipeline
 `dcsazure_Snowflake_to_Snowflake_mask_pl`
