@@ -12,7 +12,18 @@ jobs:
     
     steps:
     - uses: actions/checkout@v4
-    
+      with:
+        # Fetch full history so pre-commit scripts can compare against origin/main
+        fetch-depth: 0
+        
+    - name: Setup git references for pre-commit scripts
+      run: |
+        # Ensure origin/main reference exists for the pre-commit scripts
+        git fetch origin main
+        git branch -a
+        echo "Available references:"
+        git ls-remote origin
+        
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
