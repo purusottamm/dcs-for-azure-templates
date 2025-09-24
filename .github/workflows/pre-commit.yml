@@ -31,11 +31,13 @@ jobs:
     # Add this step to ensure proper git state
     - name: Setup git for pre-commit
       run: |
-        git config --global user.email "action@github.com"
-        git config --global user.name "GitHub Action"
+        COMMIT_AUTHOR_NAME=$(git log -1 --pretty=format:'%an')
+        COMMIT_AUTHOR_EMAIL=$(git log -1 --pretty=format:'%ae')
+        git config --global user.name "$COMMIT_AUTHOR_NAME"
+        git config --global user.email "$COMMIT_AUTHOR_EMAIL"
         echo "Git configuration set:"
-        echo "User name: $(git config --global user.name)"
-        echo "User email: $(git config --global user.email)"
+        echo "User name: $COMMIT_AUTHOR_NAME"
+        echo "User email: $COMMIT_AUTHOR_EMAIL"
     
     - name: Run pre-commit
       run: pre-commit run --all-files
